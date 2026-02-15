@@ -1,0 +1,33 @@
+# Virtual Environment
+.venv/
+env/
+venv/
+
+# Python Cache
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Models and Large Binaries (17GB)
+models/
+*.pt
+*.bin
+*.h5
+*.ckpt
+
+# Data and Logs
+logs/
+data/processed/
+# dataset.csv is small enough to keep, but often ignored
+# dataset.csv
+
+# Specialized Tools
+.claude/
+.pyre/
+cc_test.egg-info/
+
+# OS Specific
+.DS_Store

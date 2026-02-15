@@ -1,0 +1,45 @@
+# Model settings
+model_name: "distilbert-base-uncased"
+num_labels: 6
+dropout: 0.3
+freeze_bert: false
+
+# Data settings
+data:
+  raw_path: "dataset.csv"
+  train_path: "data/processed/train.csv"
+  val_path: "data/processed/val.csv"
+  max_length: 128
+
+# Training settings
+training:
+  batch_size: 16
+  epochs: 3
+  learning_rate: 0.00002
+  weight_decay: 0.01
+  warmup_steps: 100
+  max_grad_norm: 1.0
+
+# Class imbalance
+class_weights: true
+use_class_weights: true
+
+# Early stopping
+early_stopping:
+  patience: 2
+  min_delta: 0.001
+
+# Model checkpointing
+checkpoint:
+  save_best: true
+  save_last: true
+  save_dir: "models"
+
+# Logging
+logging:
+  log_dir: "logs"
+  tensorboard: true
+  log_interval: 10
+
+# Random seed for reproducibility
+seed: 42

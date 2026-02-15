@@ -1,0 +1,9 @@
+{
+    "python.defaultInterpreterPath": "/Users/leichen/Documents/Github/cc_test/.venv/bin/python",
+    "python.analysis.extraPaths": [
+        "${command:python.interpreterPath}/../lib/python3.12/site-packages",
+        "./src"
+    ],
+    "python.analysis.typeCheckingMode": "basic",
+    "python.analysis.diagnosticMode": "workspace"
+}
