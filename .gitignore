@@ -12,7 +12,7 @@ __pycache__/
 htmlcov/
 
 # Models and Large Binaries (17GB)
-models/
+/models/
 *.pt
 *.bin
 *.h5
