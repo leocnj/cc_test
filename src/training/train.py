@@ -52,7 +52,12 @@ def main():
     parser.add_argument(
         "--config", type=str, default="configs/train_config.yaml", help="Path to config file"
     )
-    parser.add_argument("--model_name", type=str, default=None, help="BERT model name")
+    parser.add_argument(
+        "--model_name",
+        type=str,
+        default=None,
+        help="BERT model name or path to SimCSE fine-tuned model directory",
+    )
     parser.add_argument("--batch_size", type=int, default=None, help="Batch size")
     parser.add_argument("--epochs", type=int, default=None, help="Number of epochs")
     parser.add_argument("--learning_rate", type=float, default=None, help="Learning rate")
