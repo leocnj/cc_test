@@ -1,17 +1,16 @@
-import os
-import sys
 import argparse
-import yaml
-import torch
-from transformers import AutoTokenizer
+import os
 import random
+
 import numpy as np
+import torch
+import yaml
+from transformers import AutoTokenizer
 
 # Add project root to path
-
 from src.data.dataset import TextClassificationDataset, save_dataset_splits
 from src.models.classifier import get_model
-from src.training.trainer import train_hf, setup_logging
+from src.training.trainer import setup_logging, train_hf
 
 
 def set_seed(seed: int):

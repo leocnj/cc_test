@@ -1,14 +1,9 @@
-import os
 import logging
-from typing import Dict, Any, Optional
-import numpy as np
-from transformers import (
-    Trainer, 
-    TrainingArguments, 
-    EarlyStoppingCallback,
-    DataCollatorWithPadding
-)
+import os
+from typing import Any, Dict, Optional
+
 from sklearn.metrics import accuracy_score, f1_score
+from transformers import DataCollatorWithPadding, EarlyStoppingCallback, Trainer, TrainingArguments
 
 
 def setup_logging(log_dir: str = 'logs') -> logging.Logger:

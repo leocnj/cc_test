@@ -1,3 +1,3 @@
-from .predict import predict, load_model
+from .predict import load_model, predict
 
 __all__ = ['predict', 'load_model']

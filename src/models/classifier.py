@@ -1,6 +1,4 @@
 from transformers import AutoModelForSequenceClassification
-import torch
-import torch.nn as nn
 
 
 def get_model(model_name: str, num_labels: int, dropout: float = 0.3):

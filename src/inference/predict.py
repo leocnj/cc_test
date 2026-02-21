@@ -1,12 +1,10 @@
-import os
-import sys
 import argparse
+import os
+
 import torch
-from transformers import AutoTokenizer, AutoConfig
-import json
+from transformers import AutoTokenizer
 
 # Add project root to path
-
 from src.models.classifier import get_model
 
 
@@ -100,7 +98,7 @@ def main():
             'time-series',
             'mlops'
         ]
-        print(f'Warning: Using default label classes')
+        print('Warning: Using default label classes')
 
     # Predict
     pred_idx, confidence = predict(args.text, model, tokenizer, device)

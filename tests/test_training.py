@@ -1,8 +1,11 @@
-import pytest
-import numpy as np
 import logging
-from unittest.mock import patch, MagicMock
-from src.training.trainer import setup_logging, compute_metrics, train_hf
+from unittest.mock import MagicMock, patch
+
+import numpy as np
+import pytest
+
+from src.training.trainer import compute_metrics, setup_logging, train_hf
+
 
 def test_setup_logging(tmp_path):
     """Test logging setup."""

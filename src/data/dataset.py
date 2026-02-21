@@ -1,10 +1,11 @@
-import torch
-from torch.utils.data import Dataset
-import pandas as pd
-import numpy as np
-from typing import Dict, List, Tuple, Optional
-from sklearn.preprocessing import LabelEncoder
 import os
+from typing import Dict, Optional, Tuple
+
+import numpy as np
+import pandas as pd
+import torch
+from sklearn.preprocessing import LabelEncoder
+from torch.utils.data import Dataset
 
 
 class TextClassificationDataset(Dataset):

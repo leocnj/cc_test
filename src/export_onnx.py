@@ -7,6 +7,7 @@ import sys
 os.environ["TORCH_ONNX_DYNAMO_EXPORT"] = "0"
 
 import argparse
+
 import numpy as np
 import torch
 from transformers import AutoModelForSequenceClassification, AutoTokenizer
