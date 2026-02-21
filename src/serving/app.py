@@ -76,7 +76,11 @@ app = FastAPI(
 class PredictRequest(BaseModel):
     text: str
 
-    model_config = {"json_schema_extra": {"examples": [{"text": "Convolutional Neural Networks for Image Recognition"}]}}
+    model_config = {
+        "json_schema_extra": {
+            "examples": [{"text": "Convolutional Neural Networks for Image Recognition"}]
+        }
+    }
 
 
 class PredictResponse(BaseModel):
@@ -124,9 +128,7 @@ async def predict(request: PredictRequest):
     pred_idx = int(np.argmax(probs))
     confidence = float(probs[pred_idx])
 
-    all_scores = {
-        LABEL_CLASSES[i]: round(float(probs[i]), 4) for i in range(len(LABEL_CLASSES))
-    }
+    all_scores = {LABEL_CLASSES[i]: round(float(probs[i]), 4) for i in range(len(LABEL_CLASSES))}
 
     return PredictResponse(
         label=LABEL_CLASSES[pred_idx],

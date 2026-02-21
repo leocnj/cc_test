@@ -48,12 +48,12 @@ def export_to_onnx(
     print(f"Exporting to ONNX at {output_path}...")
 
     # Force model to CPU and ensure it's not in a lazy state
-    model.to('cpu')
+    model.to("cpu")
     model.eval()
-    
+
     total_params = sum(p.numel() for p in model.parameters())
     print(f"Total model parameters: {total_params:,}")
-    
+
     # Check if we actually have weights
     if total_params < 1000000:
         print("❌ Error: Model seems to have no parameters loaded!")
@@ -62,7 +62,7 @@ def export_to_onnx(
     # Disable the new Dynamo-based exporter — it fails to bundle weights properly
     # in Torch 2.10+. We must pass dynamo=False directly as the env var is ignored.
     print("Using legacy (TorchScript) ONNX exporter to ensure weights are bundled...")
-    
+
     with torch.no_grad():
         torch.onnx.export(
             model,
@@ -83,13 +83,13 @@ def export_to_onnx(
 
     # Final size validation
     size_bytes = os.path.getsize(output_path)
-    print(f"Final ONNX file size: {size_bytes / (1024*1024):.2f} MB")
-    
-    if size_bytes < 10 * 1024 * 1024: # 10MB
-        print(f"❌ Error: Exported model is too small ({size_bytes/1024:.1f} KB).")
+    print(f"Final ONNX file size: {size_bytes / (1024 * 1024):.2f} MB")
+
+    if size_bytes < 10 * 1024 * 1024:  # 10MB
+        print(f"❌ Error: Exported model is too small ({size_bytes / 1024:.1f} KB).")
         print("The exporter failed to bundle the weights into the ONNX file.")
         sys.exit(1)
-    
+
     print("✅ Success: Weights bundled correctly.")
 
     # Validate ONNX model
