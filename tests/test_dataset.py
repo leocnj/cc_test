@@ -1,9 +1,8 @@
 import os
-import sys
-import pytest
-import pandas as pd
+
 import numpy as np
-from unittest.mock import Mock, patch
+import pandas as pd
+import pytest
 
 # Add project root to path
 
@@ -17,7 +16,6 @@ class MockTokenizer:
     def __call__(self, text, max_length=None, padding=None, truncation=None, return_tensors=None):
         if max_length is None:
             max_length = self.max_length
-        text_length = min(len(text.split()), max_length)
         return {
             'input_ids': np.random.randint(0, 1000, (1, max_length)),
             'attention_mask': np.ones((1, max_length), dtype=np.int64)
@@ -117,8 +115,8 @@ def test_label_weights():
 
 def test_stratified_split():
     """Test stratified train/val split."""
+
     from src.data.dataset import create_stratified_split
-    import tempfile
 
     test_data = pd.DataFrame({
         'title': ['T1'] * 100 + ['T2'] * 50,

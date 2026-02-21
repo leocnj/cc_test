@@ -1,6 +1,9 @@
+from unittest.mock import MagicMock, patch
+
 import pytest
-from unittest.mock import patch, MagicMock
+
 from src.models.classifier import get_model
+
 
 @patch('src.models.classifier.AutoModelForSequenceClassification')
 def test_get_model(mock_auto_model):
@@ -12,7 +15,7 @@ def test_get_model(mock_auto_model):
     
     mock_auto_model.from_pretrained.return_value = mock_model
 
-    model = get_model(
+    get_model(
         model_name='distilbert-base-uncased',
         num_labels=6,
         dropout=0.3
